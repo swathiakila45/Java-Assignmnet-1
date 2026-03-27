@@ -61,9 +61,9 @@ public class StudentMenu {
 
         try {
             Student student = studentService.addStudent(firstName, lastName, email, batch);
-            System.out.println("✅ Student added successfully! ID: " + student.getId());
+            System.out.println("Student added successfully! ID: " + student.getId());
         } catch (InvalidInputException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -110,9 +110,9 @@ public class StudentMenu {
 
         try {
             Student student = studentService.updateStudent(id, firstName, lastName, email, batch, active);
-            System.out.println("✅ Student updated: " + student.getDisplayName());
+            System.out.println("Student updated: " + student.getDisplayName());
         } catch (InvalidInputException | EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -123,9 +123,9 @@ public class StudentMenu {
 
         try {
             studentService.deleteStudent(id);
-            System.out.println("✅ Student deleted successfully.");
+            System.out.println("Student deleted successfully.");
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }

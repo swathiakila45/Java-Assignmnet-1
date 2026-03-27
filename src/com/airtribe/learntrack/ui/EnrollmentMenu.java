@@ -49,7 +49,7 @@ public class EnrollmentMenu {
                 case UPDATE_STATUS   -> handleUpdateStatus();
                 case DELETE          -> handleDeleteEnrollment();
                 case BACK            -> running = false;
-                case null            -> System.out.println("❌ Invalid option. Try again.");
+                case null            -> System.out.println("Invalid option. Try again.");
             }
         }
     }
@@ -63,9 +63,9 @@ public class EnrollmentMenu {
 
         try {
             Enrollment enrollment = enrollmentService.enrollStudent(studentId, courseId);
-            System.out.println("✅ Enrolled successfully! Enrollment ID: " + enrollment.getId());
+            System.out.println("Enrolled successfully! Enrollment ID: " + enrollment.getId());
         } catch (InvalidInputException | EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -95,7 +95,7 @@ public class EnrollmentMenu {
                     " | Course ID: " + e.getCourseId() +
                     " | Status: " + e.getStatus());
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -116,7 +116,7 @@ public class EnrollmentMenu {
                         " | Status: " + e.getStatus());
             }
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -137,7 +137,7 @@ public class EnrollmentMenu {
                         " | Status: " + e.getStatus());
             }
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println(" Error: " + e.getMessage());
         }
     }
 
@@ -162,15 +162,15 @@ public class EnrollmentMenu {
         };
 
         if (status == null) {
-            System.out.println("❌ Invalid status choice.");
+            System.out.println("Invalid status choice.");
             return;
         }
 
         try {
             Enrollment enrollment = enrollmentService.updateEnrollmentStatus(id, status);
-            System.out.println("✅ Status updated to: " + enrollment.getStatus());
+            System.out.println("Status updated to: " + enrollment.getStatus());
         } catch (InvalidInputException | EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -181,9 +181,9 @@ public class EnrollmentMenu {
 
         try {
             enrollmentService.deleteEnrollment(id);
-            System.out.println("✅ Enrollment deleted successfully.");
+            System.out.println("Enrollment deleted successfully.");
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }

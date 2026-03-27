@@ -44,7 +44,7 @@ public class CourseMenu {
                 case UPDATE    -> handleUpdateCourse();
                 case DELETE    -> handleDeleteCourse();
                 case BACK      -> running = false;
-                case null      -> System.out.println("❌ Invalid option. Try again.");
+                case null      -> System.out.println("Invalid option. Try again.");
             }
         }
     }
@@ -60,9 +60,9 @@ public class CourseMenu {
 
         try {
             Course course = courseService.addCourse(courseName, description, durationInWeeks);
-            System.out.println("✅ Course added successfully! ID: " + course.getId());
+            System.out.println("Course added successfully! ID: " + course.getId());
         } catch (InvalidInputException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -86,7 +86,7 @@ public class CourseMenu {
             Course course = courseService.getCourseById(id);
             System.out.println("Found: " + course.getCourseName() + " | " + course.getDescription() + " | Weeks: " + course.getDurationInWeeks());
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -108,9 +108,9 @@ public class CourseMenu {
 
         try {
             Course course = courseService.updateCourse(id, courseName, description, durationInWeeks, active);
-            System.out.println("✅ Course updated: " + course.getCourseName());
+            System.out.println("Course updated: " + course.getCourseName());
         } catch (InvalidInputException | EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -121,9 +121,9 @@ public class CourseMenu {
 
         try {
             courseService.deleteCourse(id);
-            System.out.println("✅ Course deleted successfully.");
+            System.out.println("Course deleted successfully.");
         } catch (EntityNotFoundException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
