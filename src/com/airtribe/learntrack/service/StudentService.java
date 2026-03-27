@@ -45,6 +45,17 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public List<Student> getAllStudents(String batch) {
+    List<Student> all = studentRepository.findAll();
+    List<Student> filtered = new ArrayList<>();
+    for (Student s : all) {
+        if (s.getBatch().equalsIgnoreCase(batch)) {
+            filtered.add(s);
+        }
+    }
+    return filtered;
+}
+
     public Student getStudentById(int id) {
         return studentRepository.findById(id);
     }
